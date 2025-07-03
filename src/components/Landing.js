@@ -8,7 +8,7 @@ const Landing = () => {
     <div className="min-h-screen font-sans text-gray-800 bg-gradient-to-br from-orange-50 via-white to-yellow-100">
       {/* Header */}
       <header className="flex justify-between items-center px-10 py-4 shadow-md sticky top-0 bg-white/80 backdrop-blur-md z-10">
-        <h1 className="text-xl font-bold text-gray-900">CraftConnect</h1>
+        <h1 className="text-xl font-bold text-gray-900">Hunar</h1>
         <nav className="space-x-6 hidden md:flex">
           <Link to="/explore" className="hover:text-orange-600">Explore</Link>
           <Link to="/artisans" className="hover:text-orange-600">Artisans</Link>
