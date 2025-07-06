@@ -1,131 +1,125 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaMusic } from 'react-icons/fa';
+import artisan1 from '../assets/artisan1.jpeg';
+import artisan2 from '../assets/artisan2.webp';
+import artisan3 from '../assets/artisan3.avif';
+import Card from './Card';
+import heroVideo from '../assets/heroVideo.mp4';
+import bgImage from '../assets/bg.jpg';
+import { FaBookOpen, FaLaptop, FaPeopleCarry, FaHandsHelping} from 'react-icons/fa';
+import WhatWeOffer from './WhatWeOffer';
 
 const Landing = () => {
   return (
-    <div className="min-h-screen font-sans text-gray-800 bg-gradient-to-br from-orange-50 via-white to-yellow-100">
-      {/*Header.... this has given me headaches */}
+    <div
+  className="min-h-screen font-sans text-gray-800 relative overflow-hidden"
+  style={{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>
+      {/* Header */}
       <motion.header
         initial={{ y: -60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              className="flex justify-between items-center px-10 py-4 shadow-md sticky top-0 bg-white/80 backdrop-blur-md z-10"
-            >
-              <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                Hunar 
-              </h1>
-              <nav className="space-x-6 hidden md:flex">
-                <Link to="/about" className="hover:text-orange-600">About Us</Link>
-                <Link to="/artisan" className="hover:text-orange-600">Explore Artisans</Link>
-                <Link to="/contact" className="hover:text-orange-600">Contact Us</Link>
-              </nav>
-              <div className="space-x-3">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1 rounded-md">Sign Up</button>
-                <Link to="/login">
-                  <button className="bg-gray-100 hover:bg-gray-200 px-4 py-1 rounded-md">Log In</button>
-                </Link>
-              </div>
-        </motion.header>
-      {/* Hero Section */}
-      <section className="flex justify-center items-center px-6 py-20">
-        <div className="max-w-4xl text-center bg-white/70 backdrop-blur-md p-10 rounded-2xl shadow-lg">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-            Discover the Soul of Indian Craftsmanship
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Connect with artisans, learn ancient techniques, and explore the rich heritage of India.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <button
-  onClick={(e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ripple = document.createElement('span');
-
-    ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
-    ripple.style.left = e.clientX - rect.left - rect.width / 2 + 'px';
-    ripple.style.top = e.clientY - rect.top - rect.height / 2 + 'px';
-    ripple.className = 'absolute bg-orange-300 rounded-full opacity-50 animate-ripple z-0';
-    e.currentTarget.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-  }}
-  className="relative overflow-hidden bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium z-10"
->
-  <Link to="/workshops" className="relative z-10">Explore Craft</Link>
-</button>
-            <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-md font-medium">
-              Join as Artisan
-            </button>
-          </div>
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-between items-center px-10 py-4 shadow-md sticky top-0 bg-white/80 backdrop-blur-md z-10"
+      >
+        <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+          Hunar
+        </h1>
+        <nav className="space-x-6 hidden md:flex">
+          <Link to="/about" className="hover:text-orange-600">About Us</Link>
+          <Link to="/artisan" className="hover:text-orange-600">Explore Artisans</Link>
+          <Link to="/contact" className="hover:text-orange-600">Contact Us</Link>
+        </nav>
+        <div className="space-x-3">
+          <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1 rounded-md">Sign Up</button>
+          <Link to="/login">
+            <button className="bg-gray-100 hover:bg-gray-200 px-4 py-1 rounded-md">Log In</button>
+          </Link>
         </div>
-      </section>
+      </motion.header>
+
+      {/* Hero Section */}
+      <section className="flex justify-center items-center px-6 py-20 relative z-10">
+  <div className="max-w-4xl w-full relative text-center overflow-hidden rounded-2xl shadow-lg h-[400px]">
+    
+    {/* Background Video */}
+    <video
+      className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      src={heroVideo}
+      autoPlay
+      muted
+      loop
+      playsInline
+    />
+
+    {/* Overlay Content*/}
+    <div className="relative z-10 bg-white/20 p-10 h-full flex flex-col justify-center items-center">
+      <h2 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+        Discover the Soul of Indian Craftsmanship
+      </h2>
+      <p className="text-gray-700 mb-6">
+        Connect with artisans, learn ancient techniques, and explore the rich heritage of India.
+      </p>
+
+      <div className="flex justify-center space-x-4">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+          className="relative overflow-hidden bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium z-10"
+        >
+          <Link to="/workshops" className="relative z-10">Explore Craft</Link>
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+          className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-md font-medium"
+        >
+          <Link to="/login" className="relative z-10">Join as an Artist</Link>
+        </motion.button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Our Mission */}
       <section className="px-6 py-12 max-w-4xl mx-auto text-center">
         <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
         <p className="text-gray-700">
-          HunarHub revives Indian craftsmanship by connecting artisans with learners through workshops.
+          Hunar revives Indian craftsmanship by connecting artisans with learners through workshops.
         </p>
       </section>
 
       {/* What We Offer */}
-      <section className="px-6 py-10 max-w-6xl mx-auto">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">What We Offer</h3>
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
-          {[
-            {
-              title: 'Skill-based Workshops',
-              desc: 'Hands-on learning experiences across art forms.',
-            },
-            {
-              title: 'Accessible Learning',
-              desc: 'Open to all learners, with virtual options.',
-            },
-            {
-              title: 'Social Storytelling',
-              desc: 'Share artisan stories and reach new audiences.',
-            },
-            {
-              title: 'Community Collaboration',
-              desc: 'Partner with artisans, learners, NGOs.',
-            }
-          ].map((card, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white p-5 rounded-xl shadow hover:shadow-lg"
-            >
-              <h4 className="font-semibold text-lg text-gray-800 mb-2">{card.title}</h4>
-              <p className="text-sm text-gray-600">{card.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <WhatWeOffer>
+      </WhatWeOffer>
 
       {/* Artisan Spotlights */}
-      <section className="px-6 py-10 max-w-6xl mx-auto">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Artisan Spotlights</h3>
+      <section className="px-6 py-10 max-w-6xl mx-auto mt-10">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Artisan Spotlights</h3>
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
           {[
             {
               name: 'Rohan Verma',
               title: 'Handcrafted Textiles',
-              image: '/assets/artisan1.jpeg',
+              image: artisan1,
             },
             {
               name: 'Piya Sharma',
               title: 'Intricate Saree Embroidery',
-              image: '/assets/artisan2.webp',
+              image: artisan2,
             },
             {
               name: 'Arun Singh',
               title: 'Clay masterpieces by molding through culture.',
-              image: '/assets/artisan3.avif',
+              image: artisan3,
             }
           ].map((artisan, index) => (
             <motion.div
@@ -141,6 +135,44 @@ const Landing = () => {
                 <h4 className="font-semibold text-lg text-gray-800">{artisan.name}</h4>
                 <p className="text-sm text-gray-600">{artisan.title}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Hunar x SDG Impact Section */}
+      <section className="px-6 py-12 max-w-6xl mx-auto text-center bg-white rounded-2xl mt-12 shadow-md">
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">Hunar & Sustainable Development</h3>
+        <p className="text-gray-700 max-w-3xl mx-auto mb-8">
+          Hunar is where <span className="font-semibold italic text-orange-600">कला</span> meets purpose, because <span className="font-semibold">"लोक कला ही लोक शक्ति है."</span><br/>
+          Our mission aligns with the United Nations Sustainable Development Goals (SDGs) to empower artisans, reduce inequality, and promote inclusive education.
+        </p>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+          {[
+            {
+              icon: "SDG 4",
+              title: "Quality Education",
+              desc: "Workshops promote inclusive and lifelong learning opportunities.",
+            },
+            {
+              icon: "SDG 8",
+              title: "Decent Work & Economic Growth",
+              desc: "By supporting artisans, we boost rural employment and entrepreneurship.",
+            },
+            {
+              icon: "SDG 10",
+              title: "Reduced Inequalities",
+              desc: "We bridge the gap between local talent and global opportunities.",
+            }
+          ].map((goal, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-xl p-6 shadow-md"
+            >
+              <div className="text-4xl mb-3">{goal.icon}</div>
+              <h4 className="font-semibold text-lg text-gray-800 mb-2">{goal.title}</h4>
+              <p className="text-sm text-gray-700">{goal.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -166,7 +198,6 @@ const Landing = () => {
 };
 
 export default Landing;
-
 
 
 

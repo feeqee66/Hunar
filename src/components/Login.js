@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import bgImage from '../assets/bg.jpg';
 
 const Login = () => {
   const [isArtist, setIsArtist] = useState(false);
@@ -11,14 +11,28 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(`Logging in as ${isArtist ? 'Artist' : 'User'} with`, { email, password });
-    // Accepting all credentials 
-    if (!isArtist) navigate('/dashboard');
-    else alert('Logged in as Artist');
+    
+    if (!isArtist) {
+      navigate('/dashboard');
+    } else {
+      navigate('/artist-dashboard');
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-yellow-100 px-4">
-      <form onSubmit={handleLogin} className="bg-white/80 backdrop-blur-lg p-8 rounded-xl shadow-xl w-full max-w-md">
+    <div
+      className="min-h-screen w-full font-sans text-gray-800 flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <form
+        onSubmit={handleLogin}
+        className="bg-white/80 backdrop-blur-lg p-8 rounded-xl shadow-xl w-full max-w-md"
+      >
         <h2 className="text-3xl font-bold text-center text-orange-600 mb-6">
           {isArtist ? 'Artist Login' : 'User Login'}
         </h2>

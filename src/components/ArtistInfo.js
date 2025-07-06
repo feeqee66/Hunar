@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Pottery from '../assets/pottery.jpg';
+import Pot from '../assets/pot.jpg';
+import bgImage from '../assets/bg.jpg';
 
 const artisanDetails = {
   1: {
@@ -11,7 +14,7 @@ const artisanDetails = {
     workshop: {
       title: 'Terracotta Pottery Basics',
       timing: 'Every Sat & Sun, 11AM - 2PM',
-      images: ['/assets/pottery1.jpg', '/assets/pottery2.jpg']
+      images: [Pottery,Pot]
     },
     reviews: [
       { user: 'Meera S.', comment: 'Absolutely loved her hands-on teaching style!' },
@@ -36,7 +39,16 @@ const ArtistInfo = () => {
   }
 
   return (
-    <div className="min-h-screen px-6 py-10 font-sans bg-white text-gray-800">
+    <div
+  className="min-h-screen font-sans text-gray-800 relative overflow-hidden"
+  style={{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>
+     <div className=" px-6 py-10 min-h-full"></div>
         {/*Header*/}
               <motion.header
                 initial={{ y: -60, opacity: 0 }}
@@ -44,9 +56,9 @@ const ArtistInfo = () => {
                 transition={{ duration: 0.6 }}
                 className="flex justify-between items-center px-10 py-4 shadow-md sticky top-0 bg-white/80 backdrop-blur-md z-10"
               >
-                <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  Hunar 
-                </h1>
+                <Link to="/" className="text-xl font-bold text-gray-900 flex items-center gap-2 hover:text-orange-600 transition">
+    Hunar
+  </Link>
                 <nav className="space-x-6 hidden md:flex">
                   <Link to="/about" className="hover:text-orange-600">About Us</Link>
                   <Link to="/artisan" className="hover:text-orange-600">Explore Artisans</Link>
