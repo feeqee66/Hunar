@@ -91,11 +91,17 @@ const Landing = () => {
 
       {/* Our Mission */}
       <section className="px-6 py-12 max-w-4xl mx-auto text-center">
-        <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
-        <p className="text-gray-700">
-          Hunar revives Indian craftsmanship by connecting artisans with learners through workshops.
-        </p>
-      </section>
+  <motion.div
+    whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(255,165,0,0.4)' }}
+    transition={{ type: 'spring', stiffness: 200 }}
+    className="bg-white/80 backdrop-blur-md border border-orange-300 shadow-md p-8 rounded-2xl"
+  >
+    <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
+    <p className="text-gray-700 text-sm leading-relaxed">
+      Hunar revives Indian craftsmanship by connecting artisans with learners through engaging and immersive workshops that keep culture alive.
+    </p>
+  </motion.div>
+</section>
 
       {/* What We Offer */}
       <WhatWeOffer>
@@ -188,9 +194,12 @@ const Landing = () => {
             placeholder="Enter your email"
             className="px-4 py-2 border rounded-md w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium">
-            Subscribe
-          </button>
+          <button
+  onClick={() => alert("Thank you for subscribing! 📬")}
+  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium"
+>
+  Subscribe
+</button>
         </div>
       </section>
     </div>

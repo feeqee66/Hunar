@@ -28,7 +28,7 @@ const Dashboard = () => {
   const workshops = [
     { title: 'Clay Creations Studio', category: 'Pottery', location: 'Pune', mode: 'Offline', type: 'Studio' },
     { title: 'Threads of Tradition', category: 'Textile', location: 'Mumbai', mode: 'Online', type: 'Webinar' },
-    { title: 'Carving Craftsmanship', category: 'Wood Carving', location: 'Pune', mode: 'Offline', type: 'Workshop' }
+    { title: 'Carving Craftsmanship', category: 'Wood Carving', location: 'Bihar', mode: 'Offline', type: 'Workshop' }
   ];
 
   const filteredWorkshops = workshops.filter(w =>
