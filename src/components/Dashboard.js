@@ -16,11 +16,7 @@ import Rosewood from '../assets/rosewood.jpg';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-<<<<<<< HEAD
   const [searchTerm] = useState('');
-=======
-  const [setSearchTerm] = useState('');
->>>>>>> d174c49f87eced7679794ae1367906ab790e1802
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState('');
   const [mode, setMode] = useState('');
